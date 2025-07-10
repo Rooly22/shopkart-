@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <h2><i class="fa fa-cart-plus"></i>Shopkart</h2>
+             <ul>             
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>      
+                {% if request.user.is_authenticated %}   
+                    <li><a class="nav-link" aria-current="page" href="#"><i class="fa fa-user"></i> {{request.user}}</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'logout'%}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {% else %}
+                    <li><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
+                    <li><a class="nav-link" href="{% url 'register' %}"><i class="fa fa-users"></i> Register</a></li>
+                {% endif %}
+                    <li><a class="nav-link" href="{% url 'collections'%}"><i class="fa fa-cubes"></i> Collections</a></li>
+                    <li><a class="nav-link" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                    <li><a class="nav-link" href="{% url 'favviewpage' %}"><i class="fa fa-heart"></i> Favourite</a></li>
+            </ul>              
+        </nav>
+    </header>
+</body>
+</html>
+  
